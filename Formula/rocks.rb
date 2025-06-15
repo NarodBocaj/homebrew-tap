@@ -18,12 +18,15 @@ class Rocks < Formula
     (bin/"rocks").write <<~EOS
       #!/bin/bash
       export ROCKS_DATA_DIR="#{pkgshare}"
-      exec "#{bin}/rocks" "$@"
+      exec "#{libexec}/rocks" "$@"
     EOS
     chmod 0755, bin/"rocks"
+
+    # Move the actual binary to libexec
+    libexec.install "target/release/rocks"
   end
 
   test do
     system "#{bin}/rocks", "--version"
   end
-end 
+end
