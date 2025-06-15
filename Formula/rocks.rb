@@ -1,7 +1,7 @@
 class Rocks < Formula
     desc "Command line tool for scraping Yahoo Finance stock information"
     homepage "https://github.com/NarodBocaj/rocks"
-    url "https://github.com/NarodBocaj/rocks/archive/refs/tags/v0.1.0.tar.gz"
+    url "https://github.com/NarodBocaj/rocks/archive/refs/tags/v0.1.1.tar.gz"
     sha256 "" # You'll need to fill this in after creating the release
     license "MIT"
 
