@@ -8,23 +8,24 @@ class Rocks < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--path", "."
-    
+    system "cargo", "build", "--release"
+  
     # Install the CSV files to pkgshare
     pkgshare.install "filtered_data/equities.csv"
     pkgshare.install "filtered_data/etfs.csv"
-    
-    # Create a wrapper script that sets the correct path for the CSV files
+  
+    # Move the actual binary to libexec
+    libexec.install "target/release/rocks"
+  
+    # Create a wrapper that sets the correct env var and runs the binary
     (bin/"rocks").write <<~EOS
       #!/bin/bash
       export ROCKS_DATA_DIR="#{pkgshare}"
       exec "#{libexec}/rocks" "$@"
     EOS
     chmod 0755, bin/"rocks"
-
-    # Move the actual binary to libexec
-    libexec.install "target/release/rocks"
   end
+  
 
   test do
     system "#{bin}/rocks", "--version"
