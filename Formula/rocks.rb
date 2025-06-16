@@ -1,8 +1,8 @@
 class Rocks < Formula
   desc "Command line tool for scraping Yahoo Finance stock information"
   homepage "https://github.com/NarodBocaj/rocks"
-  url "https://github.com/NarodBocaj/rocks/archive/refs/tags/v0.1.8.tar.gz"
-  sha256 "883d44518de8b60ae871795a69fa58302ad176e593a61a3a66a47ef9cc612ad0"
+  url "https://github.com/NarodBocaj/rocks/archive/refs/tags/v0.1.9.tar.gz"
+  sha256 "3cbcb00c263293502ea258cccd5d345743dfb2408939107520bbc5d6ba7c62fd"
   license "MIT"
 
   depends_on "rust" => :build
